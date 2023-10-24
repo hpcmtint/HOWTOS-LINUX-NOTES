@@ -1,4 +1,4 @@
-# cleaning traces of Git commit history and pushing back the report to GitHUB
+# cleaning traces of Git commits history and pushing back the repo to GitHUB
 
 ```bash
 rm -fR .git
