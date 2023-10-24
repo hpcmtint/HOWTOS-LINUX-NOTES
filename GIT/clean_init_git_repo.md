@@ -9,6 +9,7 @@ git remote add origin git@github.com:hpcmtint/keycloak.git
 git push -u --force origin master
 git log -G"awe.co.uk" --patch
 ```
+
 or 
 
 ```bash
@@ -20,3 +21,16 @@ git branch -m master  # Rename the current branch to master
 git push -f origin master  # Force push master branch to github
 git gc --aggressive --prune=all     # remove the old files
 ```
+or
+
+```bash
+for BR in $(git branch); do   
+  git checkout $BR
+  git checkout --orphan ${BR}_temp
+  git commit -m "Initial commit"
+  git branch -D $BR
+  git branch -m $BR
+done;
+git gc --aggressive --prune=all
+```
+
