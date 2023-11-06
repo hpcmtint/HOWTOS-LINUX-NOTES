@@ -1,12 +1,4 @@
-[
-
-![Chi Thuc Nguyen](https://miro.medium.com/v2/resize:fill:88:88/1*y-XQSNb4DyflrONI4uKRKQ.jpeg)
-
-
-
-](https://thucnc.medium.com/?source=post_page-----380d05a24745--------------------------------)
-
-![](https://miro.medium.com/v2/resize:fit:700/1*bm3WGhLRaNtPMKclzYvjtQ.png)
+# Adding current git branch name in Bash prompt
 
 Adding current git branch name in Bash prompt with _highlighted color_ can help to avoid a lot of problems with working on wrong git branches, which is a quite popular scenario to most of the developers sometime. This guide show to do it and explain some underneath concept of the hack.
 
@@ -14,8 +6,9 @@ Adding current git branch name in Bash prompt with _highlighted color_ can help 
 
 Adding this to `~/.bashrc`:
 
-```
-parse_git_branch() {     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'}export PS1="\u@\h \[\e[32m\]\w \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "
+```bash
+parse_git_branch() {     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'}
+export PS1="\u@\h \[\e[32m\]\w \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "
 ```
 
 Restart the terminal, or source `~/.bashrc`, and it works:
