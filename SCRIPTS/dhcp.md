@@ -1,10 +1,36 @@
 # Check if a DHCP server existing in my network using bash
 
-##### Links
+## Links
 
 *   [one of many MAC address lookup tools on the web](http://www.wireshark.org/tools/oui-lookup.html)
 
-##### Marks
+## nmap does this easily:
+
+```sudo nmap --script broadcast-dhcp-discover -e eth0```
+
+<pre>
+Starting Nmap 6.40 ( http://nmap.org ) at 2016-08-16 09:25 UTC
+Pre-scan script results:
+| broadcast-dhcp-discover: 
+|   IP Offered: 192.168.0.67
+|   DHCP Message Type: DHCPOFFER
+|   Server Identifier: 192.168.0.1
+|   IP Address Lease Time: 0 days, 0:05:00
+|   Subnet Mask: 255.255.255.0
+|   Router: 192.168.0.1
+|   Domain Name Server: 8.8.8.8
+|   Domain Name: maas
+|   Broadcast Address: 192.168.0.255
+|_  NTP Servers: 91.189.91.157, 91.189.89.199, 91.189.94.4, 91.189.89.198
+WARNING: No targets were specified, so 0 hosts scanned.
+Nmap done: 0 IP addresses (0 hosts up) scanned in 0.27 seconds
+</pre>
+
+<pre>
+Note: there is a similar script for dhcpv6
+
+sudo nmap --script broadcast-dhcp6-discover -e eth0
+</pre>
 
 If you have `tcpdump` available to you, invoking the program as root with the following parameters might assist you in finding the server:
 
@@ -47,7 +73,9 @@ Unfortunately, due to my network's layout, I can't get a full DHCP handshake cap
 
 ```
 After letting \`tcpdump' run overnight, I did eventually see this ACK:
+
 ```bash
+
 07:46:40.049423 a8:39:44:96:fa:b8 > 68:a8:6d:58:5b:f3, ethertype IPv4 (0x0800), length 320: (tos 0x0, ttl 64, id 0, offset 0, flags \[none\], proto UDP (17), length 306)
     192.168.2.1.67 > 192.168.2.22.68: BOOTP/DHCP, Reply, length 278, xid 0x5e7944f, Flags \[none\]
       Client-IP 192.168.2.22
