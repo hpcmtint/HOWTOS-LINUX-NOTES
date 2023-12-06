@@ -8,11 +8,28 @@
 
 If you have `tcpdump` available to you, invoking the program as root with the following parameters might assist you in finding the server:
 
-```bash
-> tcpdump -i \[interface id\] -nev udp port 68
+<pre>
+SYNOPSIS
+       dhcpdump [-h regular-expression] -i interface
+
+DESCRIPTION
+       This command parses the output of tcpdump to display the dhcp-packets for easier checking and debugging.
+
+USAGE
+       dhcpdump -i /dev/fxp0
+
+       If you want to filter a specific Client Hardware Address (CHADDR), then you can specifiy it as a regular expressions:
+
+       dhcpdump -i /dev/fxp0 -h ^00:c0:4f
+
+       This will display only the packets with Client Hardware Addresses which start with 00:c0:4f.
+</pre>
+
+```tcpdump -i \[interface id\] -nev udp port 68```
 
 Unfortunately, due to my network's layout, I can't get a full DHCP handshake captured right away. However, I do see a DHCP Request from my iPad:
 
+```bash
 22:16:44.767371 30:10:e4:8f:02:14 > ff:ff:ff:ff:ff:ff, ethertype IPv4 (0x0800), length 342: (tos 0x0, ttl 255, id 15652, offset 0, flags \[none\], proto UDP (17), length 328)
     0.0.0.0.68 > 255.255.255.255.67: BOOTP/DHCP, Request from 30:10:e4:8f:02:14, length 300, xid 0x42448eb6, Flags \[none\]
       Client-Ethernet-Address 30:10:e4:8f:02:14
