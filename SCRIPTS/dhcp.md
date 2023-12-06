@@ -1,4 +1,5 @@
 # Check if a DHCP server existing in my network using bash
+
 <pre>
 DHCP uses UDP port 67 on the server side and UDP port 68 on the client side. DHCP also has two versions: DHCPv4 and DHCPv6 to support IPv4 and IPv6, respectively. These two versions, much like the two versions of IP, are very different and are therefore considered separate protocols and use separate ports.
 </pre>
