@@ -28,11 +28,11 @@ WARNING: No targets were specified, so 0 hosts scanned.
 Nmap done: 0 IP addresses (0 hosts up) scanned in 0.27 seconds
 </pre>
 
-<pre>
 Note: there is a similar script for dhcpv6
 
+```bash
 sudo nmap --script broadcast-dhcp6-discover -e eth0
-</pre>
+```
 
 If you have `tcpdump` available to you, invoking the program as root with the following parameters might assist you in finding the server:
 
