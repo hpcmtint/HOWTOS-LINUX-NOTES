@@ -1,4 +1,4 @@
-
+```bash
 ------------------------------------------------------------------------------------------
  (sudo  du -a /var/log/ |sort -nr|head -n20 |awk '{print $NF}'|while read l ;do du -csh $l|grep -vi total;done ) 2> /dev/null
 
@@ -29,3 +29,4 @@ filz="$file.filz"; { du --max-depth=$2 -ab $1 ; cat "$dirs" ; } | sort -nr | uni
 echo "================"
 rm   "$file."* 
 ------------------------------------------------------------------------------------------
+```
