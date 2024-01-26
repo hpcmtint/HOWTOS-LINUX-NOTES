@@ -23,7 +23,7 @@ As icing on the cake, git log also has a bunch of other options to fine-tune the
 
 As suggested in that post, you can save yourself some typing by creating an alias.
 
-For example, I have this in my ~/.gitconfig:
+For example, I have this in my **~/.gitconfig**:
 
 ```bash
 [alias]
