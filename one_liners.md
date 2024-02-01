@@ -30,3 +30,26 @@ echo "================"
 rm   "$file."* 
 ------------------------------------------------------------------------------------------
 ```
+
+
+----------------
+
+password gen 
+
+xkcdpass | sed -e "s/\b\(.\)/\u\1/g" | sed -e 's/ /_/g' | tr 'aeio' '4310'
+
+awk '{for (i=1;i<=NF;i++) if ($i~/\./ && $i~"@") {gsub(/a/,"4",$i);gsub(/e/,"3",$i);gsub(/i/,"1",$i);gsub(/o/,"0",$i)}}1'
+
+
+awk '
+    {
+    for (i=1;i<=NF;i++)             # Loop trough all fields in the string
+        if ($i~/\./ && $i~"@") {    # If sting a field contains "." and "@" assume email
+            gsub(/a/,"4",$i)        # Change the letter for the field
+            gsub(/e/,"3",$i)        # Change the letter for the field
+            gsub(/i/,"1",$i)        # Change the letter for the field
+            gsub(/o/,"0",$i)        # Change the letter for the field
+            }
+    }1' file                        # Read the input file
+
+    
