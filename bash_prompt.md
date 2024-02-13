@@ -54,34 +54,34 @@ export PS1<span>=</span><span>"\[\e[31m\][\[\e[m\]\[\e[38;5;172m\]\u\[\e[m\]@\[\
 Use the [cat command](https://www.cyberciti.biz/faq/linux-unix-appleosx-bsd-cat-command-examples/ "cat Command in Linux / Unix with examples") or [more command](https://bash.cyberciti.biz/guide/More_command "More command - Linux Bash Shell Scripting Tutorial Wiki") or [less command](https://bash.cyberciti.biz/guide/Less_command "Less command - Linux Bash Shell Scripting Tutorial Wiki") to read system wide PS1 and other settings:  
 `$ more /etc/profile`
 
-```
-<span># /etc/profile: system-wide .profile file for the Bourne shell (sh(1))</span>
-<span># and Bourne compatible shells (bash(1), ksh(1), ash(1), ...).</span>
-&nbsp;
-<span>if</span> <span>[</span> <span>"<span>${PS1-}</span>"</span> <span>]</span>; <span>then</span>
-  <span>if</span> <span>[</span> <span>"<span>${BASH-}</span>"</span> <span>]</span> <span>&amp;&amp;</span> <span>[</span> <span>"<span>$BASH</span>"</span> <span>!</span>= <span>"/bin/sh"</span> <span>]</span>; <span>then</span>
-    <span># The file bash.bashrc already sets the default PS1.</span>
-    <span># PS1='\h:\w\$ '</span>
-    <span>if</span> <span>[</span> <span>-f</span> <span>/</span>etc<span>/</span>bash.bashrc <span>]</span>; <span>then</span>
-      . <span>/</span>etc<span>/</span>bash.bashrc
-    <span>fi</span>
-  <span>else</span>
-    <span>if</span> <span>[</span> <span>"<span>`id -u`</span>"</span> <span>-eq</span> <span>0</span> <span>]</span>; <span>then</span>
-      <span>PS1</span>=<span>'# '</span>
-    <span>else</span>
-      <span>PS1</span>=<span>'$ '</span>
-    <span>fi</span>
-  <span>fi</span>
-<span>fi</span>
-&nbsp;
-<span>if</span> <span>[</span> <span>-d</span> <span>/</span>etc<span>/</span>profile.d <span>]</span>; <span>then</span>
-  <span>for</span> i <span>in</span> <span>/</span>etc<span>/</span>profile.d<span>/*</span>.sh; <span>do</span>
-    <span>if</span> <span>[</span> <span>-r</span> <span>$i</span> <span>]</span>; <span>then</span>
-      . <span>$i</span>
-    <span>fi</span>
-  <span>done</span>
-  <span>unset</span> i
-<span>fi</span>
+```bash
+# /etc/profile: system-wide .profile file for the Bourne shell (sh(1))
+# and Bourne compatible shells (bash(1), ksh(1), ash(1), ...).
+ 
+if [ "${PS1-}" ]; then
+  if [ "${BASH-}" ] && [ "$BASH" != "/bin/sh" ]; then
+    # The file bash.bashrc already sets the default PS1.
+    # PS1='\h:\w\$ '
+    if [ -f /etc/bash.bashrc ]; then
+      . /etc/bash.bashrc
+    fi
+  else
+    if [ "`id -u`" -eq 0 ]; then
+      PS1='# '
+    else
+      PS1='$ '
+    fi
+  fi
+fi
+ 
+if [ -d /etc/profile.d ]; then
+  for i in /etc/profile.d/*.sh; do
+    if [ -r $i ]; then
+      . $i
+    fi
+  done
+  unset i
+fi
 ```
 
 ### How do I modify or change the prompt?
@@ -159,17 +159,18 @@ Let us say when you login as root/superuser, you want to get visual confirmation
 Open /etc/bashrc (Redhat and friends) / or /etc/bash.bashrc (Debian/Ubuntu) or /etc/bash.bashrc.local (Suse and others) file and append following code:  
 `# vi /etc/bashrc`  
 or  
-`$ sudo gedit /etc/bashrc`  
+`$ sudo gedit /etc/bashrc`
+
 Append the code as follows
 
-```
-<span># If id command returns zero, you got root access.</span>
-<span>if</span> <span>[</span> $<span>(</span><span>id</span> -u<span>)</span> <span>-eq</span> <span>0</span> <span>]</span>;
-<span>then</span> <span># you are root, set red colour prompt</span>
-  <span>PS1</span>=<span>"\\[<span>$(tput setaf 1)</span>\\]\\u@\\h:\\w #\\[<span>$(tput sgr0)</span>\\]"</span>
-<span>else</span> <span># normal</span>
-  <span>PS1</span>=<span>"[\\u@\\h:\\w] $"</span>
-<span>fi</span>
+```bash
+# If id command returns zero, you got root access.
+if [ $(id -u) -eq 0 ];
+then # you are root, set red colour prompt
+  PS1="\\[$(tput setaf 1)\\]\\u@\\h:\\w #\\[$(tput sgr0)\\]"
+else # normal
+  PS1="[\\u@\\h:\\w] $"
+fi
 ```
 
 Close and save the file.
