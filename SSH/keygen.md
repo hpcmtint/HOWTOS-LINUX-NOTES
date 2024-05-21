@@ -1,5 +1,7 @@
 Today’s article offers a straightforward tutorial on boosting the security of your SSH remote sessions. We’ll focus on setting up SSH Key-based Authentication for your Linux server and show you how to transition away from less secure Password-based authentication. To wrap up, I’ll share bonus tips on additional ways to secure your SSH server.
 
+https://infosecwriteups.com/a-guide-to-securing-your-remote-access-using-ssh-keys-84b48097f3bf
+
 ## Overview
 
 **SSH (Secure Shell) key-based authentication** is a security method that uses a pair of cryptographic keys to authenticate a user’s identity on a remote server. This approach involves generating and storing a public-private key pair on your computer and configuring the SSH server to recognize and accept these keys. It significantly improves security by reducing the risks associated with traditional Password-based Authentication.
