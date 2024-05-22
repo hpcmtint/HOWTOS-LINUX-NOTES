@@ -1,4 +1,3 @@
-Whenever we notice the system slowing down, our typical first step is to execute the top or uptime command to understand the system’s load. For example, as shown below, I entered the uptime command in the command line, and the system promptly provided the result.
 
 $ uptime
 02:34:03 up 2 days, 20:14,  1 user,  load average: 0.63, 0.83, 0.88
@@ -190,3 +189,5 @@ Average load provides a quick way to assess the overall performance of a system,
 A high average load is likely caused by CPU-intensive processes.
 A high average load does not necessarily mean high CPU usage; it could also indicate increased I/O activity.
 When you find a high load, you can use tools like mpstat, pidstat, etc., to assist in analyzing the source of the load.
+</pre>
+  
