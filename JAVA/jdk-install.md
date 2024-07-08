@@ -1,6 +1,5 @@
 Here's the text formatted in Markdown:
 
-```markdown
 **# Step 1: Install Java on Ubuntu 22.04**
 
 There are two main options for installing Java. You can install OpenJDK which is the open-source implementation of Java. This is available on the default Ubuntu repository. Optionally, you can install Oracle JDK which is fully maintained by Oracle.
