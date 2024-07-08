@@ -44,5 +44,3 @@ The output shows that we have successfully installed OpenJDK 17.0.6.
 
 That's one way of installing Java on Ubuntu.
 ```
-
-Would you like me to explain or break down the formatting?
