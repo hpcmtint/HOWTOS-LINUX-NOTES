@@ -1,5 +1,5 @@
 
-'''bash
+```bash
 
 cd  /etc/netplan/
 vi 00-netplan-config-eth0.yaml
@@ -18,4 +18,4 @@ network:
   version: 2
   
 netplan apply
-'''
+```
