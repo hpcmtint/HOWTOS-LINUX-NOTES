@@ -1,5 +1,5 @@
 # Installing and Using Fail2ban on Debian 12
-[![Howtoforge](data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22215%22%20height=%2264%22%3E%3C/svg%3E)](https://www.howtoforge.com/)
+[![Howtoforge](https://www.howtoforge.com/images/howtoforge_logo_trans.gif)](https://www.howtoforge.com/)
 
 Installing and Using Fail2ban on Debian 12
 ------------------------------------------
