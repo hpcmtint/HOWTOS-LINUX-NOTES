@@ -33,11 +33,12 @@ rm   "$file."*
 
 
 ----------------
-
+```bash
 password gen 
 
 xkcdpass | sed -e "s/\b\(.\)/\u\1/g" | sed -e 's/ /_/g' | tr 'aeio' '4310'
-
+```
+```awk
 awk '{for (i=1;i<=NF;i++) if ($i~/\./ && $i~"@") {gsub(/a/,"4",$i);gsub(/e/,"3",$i);gsub(/i/,"1",$i);gsub(/o/,"0",$i)}}1'
 
 
@@ -51,5 +52,5 @@ awk '
             gsub(/o/,"0",$i)        # Change the letter for the field
             }
     }1' file                        # Read the input file
-
-    
+ 
+```
